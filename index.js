@@ -14,7 +14,7 @@ const patchPostMessageJsCode = `(${String(function() {
   window.postMessage = patchedPostMessage;
 })})();`;
 
-const generateTheWebViewContent = siteKey => {
+const generateTheWebViewContent = (siteKey, action) => {
   // v3 recaptcha
   const originalForm =
     '<!DOCTYPE html><html><head> ' +
@@ -48,7 +48,7 @@ const generateTheWebViewContent = siteKey => {
   return originalForm;
 };
 
-const RNReCaptcha = ({ onMessage, siteKey, style, url }) => (
+const RNReCaptcha = ({ onMessage, action, siteKey, style, url }) => (
   <WebView
     originWhitelist={['*']}
     mixedContentMode={'always'}
@@ -58,7 +58,7 @@ const RNReCaptcha = ({ onMessage, siteKey, style, url }) => (
     automaticallyAdjustContentInsets
     style={[{ backgroundColor: 'transparent', width: '100%' }, style]}
     source={{
-      html: generateTheWebViewContent(siteKey),
+      html: generateTheWebViewContent(siteKey, action),
       baseUrl: `${url}`,
     }}
   />
