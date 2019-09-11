@@ -22,7 +22,6 @@ const generateTheWebViewContent = siteKey => {
     '<script src="https://www.google.com/recaptcha/api.js?render=' + siteKey + '"></script> ' +
     '<script type="text/javascript"> ' +
     'grecaptcha.ready(function() { ' +
-        `(${String(onReady)})(); ` +
         'grecaptcha.execute(\'' + siteKey + '\', {action: \'' + action + '\'}).then( '+
             'function (responseToken) { window.postMessage(responseToken);  } ' +
         ' ); ' +
