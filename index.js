@@ -18,7 +18,7 @@ const generateTheWebViewContent = (siteKey, action) => {
   // v3 recaptcha
   const originalForm =
     '<!DOCTYPE html><html><head> ' +
-    '<style>  .text-xs-center { text-align: center; } .g-recaptcha { display: inline-block; } </style> ' +
+    '<style>  .text-xs-center { text-align: center; } .g-recaptcha { display: inline-block; } .grecaptcha-badge {display: none !important;} </style> ' +
     '<script src="https://www.google.com/recaptcha/api.js?render=' + siteKey + '"></script> ' +
     '<script type="text/javascript"> ' +
     'grecaptcha.ready(function() { ' +
